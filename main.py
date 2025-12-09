@@ -20,42 +20,27 @@ print("1 - Encode")
 print("2 - Decode\n")
 
 human_alphabet = "abcdefghijklmnopqrstuvwxyz .,?!-"
-encode_dict = {
-    "a": "☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭∴∵⍪⸮‼-",
-    "b": "☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉∴∵⍪⸮‼-",
-    "c": "♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿∴∵⍪⸮‼-",
-    "d": "♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁∴∵⍪⸮‼-",
-    "e": "♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃∴∵⍪⸮‼-",
-    "f": "♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄∴∵⍪⸮‼-",
-    "g": "♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅∴∵⍪⸮‼-",
-    "h": "♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆∴∵⍪⸮‼-",
-    "i": "⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇∴∵⍪⸮‼-",
-    "j": "⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳∴∵⍪⸮‼-",
-    "k": "⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴∴∵⍪⸮‼-",
-    "l": "⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵∴∵⍪⸮‼-",
-    "m": "⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶∴∵⍪⸮‼-",
-    "n": "⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷∴∵⍪⸮‼-",
-    "o": "⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸∴∵⍪⸮‼-",
-    "p": "⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹∴∵⍪⸮‼-",
-    "q": "⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺∴∵⍪⸮‼-",
-    "r": "⚼⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻∴∵⍪⸮‼-",
-    "s": "⌖⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼∴∵⍪⸮‼-",
-    "t": "⌬⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖∴∵⍪⸮‼-",
-    "u": "⍟⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬∴∵⍪⸮‼-",
-    "v": "⍤⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟∴∵⍪⸮‼-",
-    "w": "⍥⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤∴∵⍪⸮‼-",
-    "x": "⍨⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥∴∵⍪⸮‼-",
-    "y": "⍩⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨∴∵⍪⸮‼-",
-    "z": "⍭☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩∴∵⍪⸮‼-",
-}
+encoded_alphabet = list("☉☿♁♃♄♅♆♇⚳⚴⚵⚶⚷⚸⚹⚺⚻⚼⌖⌬⍟⍤⍥⍨⍩⍭")
+encoded_punctuation = "∴∵⍪⸮‼-"
+
+encode_dict = dict()
+
+for i in range(len(human_alphabet)):
+    if human_alphabet[i] == " ":
+        break
+
+    encode_dict.update(
+        {human_alphabet[i]: "".join(encoded_alphabet) + encoded_punctuation}
+    )
+    encoded_alphabet.append(encoded_alphabet.pop(0))
 
 match input("Option: "):
     case "1":
         print("--------------")
         print("Encoding")
 
-        key = input("Enter your key here: ")
-        sentence = input("Enter your sentence here: ")
+        key = input("Enter your key here: ").lower()
+        sentence = input("Enter your sentence here: ").lower()
         encoded_sentece = ""
 
         k = 0
@@ -74,8 +59,8 @@ match input("Option: "):
         print("--------------")
         print("Decoding")
 
-        key = input("Enter your key here: ")
-        sentence = input("Enter your sentence here: ")
+        key = input("Enter your key here: ").lower()
+        sentence = input("Enter your sentence here: ").lower()
         decoded_sentece = ""
 
         k = 0
