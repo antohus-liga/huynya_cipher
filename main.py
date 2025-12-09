@@ -74,3 +74,5 @@ match input("Option: "):
 
             k += 1
         print(decoded_sentece)
+
+input()
